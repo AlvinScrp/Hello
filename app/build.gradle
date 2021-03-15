@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'auto-patch-plugin'
+apply plugin: 'robust'
+apply plugin: 'mycustom-plugin'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.a.hello"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+
+//        ndk {
+//            // Filter for architectures supported by Flutter.
+//            abiFilters 'x86'
+//        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+//    externalNativeBuild {
+//        cmake {
+//            path "src/main/cpp/CMakeLists.txt"
+//            version "3.10.2"
+//        }
+//    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    compile 'com.meituan.robust:robust:0.4.99'
+}

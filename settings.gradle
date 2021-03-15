@@ -1,0 +1,8 @@
+//include ':binderclient'
+//include ':binderlibrary'
+//include ':binderserver'
+include ':okhttp'
+//include ':smalidex'
+//include ':cydia'
+//include ':app'
+rootProject.name = "Hello"
