@@ -1,17 +1,22 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext.kotlin_version = '1.5.0-M1'
     ext.kotlin_version = '1.4.30-RC'
     repositories {
         google()
         jcenter()
-        maven { url 'https://dl.bintray.com/alvinscrp/maven' }
+        maven { url 'https://jitpack.io' }
+
+//        maven { url 'https://dl.bintray.com/alvinscrp/maven' }
+//        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:3.6.2"
         classpath 'com.meituan.robust:gradle-plugin:0.4.99'
         classpath 'com.meituan.robust:auto-patch-plugin:0.4.99'
-        classpath 'com.a:mycustomplugin2:0.0.2'
+//        classpath 'com.a:mycustomplugin2:0.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.AlvinScrp:PrivacyChecker:0.0.2'
 
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -23,7 +28,8 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'https://dl.bintray.com/alvinscrp/maven' }
+        maven { url 'https://jitpack.io' }
+//        maven { url 'https://dl.bintray.com/alvinscrp/maven' }
     }
     afterEvaluate { project ->
         println "Adding smile task to $project"
