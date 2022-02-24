@@ -27,14 +27,14 @@ class HandlerMainActivity : AppCompatActivity() {
         //构建一个处理message的handler
         val handler = object : Handler() {
             override fun dispatchMessage(msg: Message) {
-                Log.d("alvin", "msg.what:${msg.what}")
+                tv.text = "msg.what:${msg.what}"
             }
         }
         //发一个消息
         handler.sendMessageDelayed(Message().also { it.what = 1 },1000L)
 
         //post 方式发送消息
-        Handler().post { Log.d("alvin", "do post body") }
+        Handler().post {  tv.text ="do post body"}
     }
 
     private fun writePipe(message: String, pfdWrite: ParcelFileDescriptor) {

@@ -25,11 +25,13 @@ class RxJavaAppActivity : AppCompatActivity() {
 
     private var userName: String = "AlvinScrp"
 
-    private var service = Retrofit.Builder()
+    private var retrofit:Retrofit = Retrofit.Builder()
         .baseUrl("https://api.github.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .build().create(IService::class.java)
+        .build()
+
+    private var service:IService = retrofit.create(IService::class.java)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
