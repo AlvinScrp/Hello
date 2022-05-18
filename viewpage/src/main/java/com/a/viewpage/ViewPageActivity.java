@@ -29,7 +29,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.a.viewpage.ui.main.SectionsPagerAdapter;
-import com.hpplay.sdk.source.api.LelinkSourceSDK;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +40,8 @@ public class ViewPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_page);
 
-        LelinkSourceSDK sd;
+        Log.d("alvin-app","ViewPageActivity: onCreate");
+
 
         @StringRes final int[] TAB_TITLES = new int[]{R.string.tab_text_0, R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_3, R.string.tab_text_4};
         List<Fragment> fragmentList = new ArrayList<>();
@@ -103,4 +103,31 @@ public class ViewPageActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("alvin-app","ViewPageActivity: onResume");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("alvin-app","ViewPageActivity: onStart");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("alvin-app","ViewPageActivity: onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("alvin-app","ViewPageActivity: onStop");
+    }
+
+
+
 }

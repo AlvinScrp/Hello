@@ -34,26 +34,26 @@ public class PlaceholderFragment2 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("alvin", "fragment:" + index + ",onCreate");
+//        Log.d("alvin", "fragment:" + index + ",onCreate");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("alvin", "fragment:" + index + ",onStart");
+//        Log.d("alvin", "fragment:" + index + ",onStart");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d("alvin", "fragment:" + index + ",onStop");
+//        Log.d("alvin", "fragment:" + index + ",onStop");
     }
 
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d("alvin", "fragment:" + index + ",onActivityCreated");
+//        Log.d("alvin", "fragment:" + index + ",onActivityCreated");
     }
 
     private View root;
@@ -64,7 +64,7 @@ public class PlaceholderFragment2 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_view_page2, container, false);
         this.root = root;
-        Log.d("alvin", "fragment:" + index + ",onCreateView");
+//        Log.d("alvin", "fragment:" + index + ",onCreateView");
 
         new Handler().postDelayed(() -> wrapperRecycler(), 200);
         return root;
@@ -118,30 +118,30 @@ public class PlaceholderFragment2 extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("alvin", "fragment:" + index + ",onResume");
+//        Log.d("alvin", "fragment:" + index + ",onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d("alvin", "fragment:" + index + ",onPause");
+//        Log.d("alvin", "fragment:" + index + ",onPause");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("alvin", "fragment:" + index + ",onDestroyView");
+//        Log.d("alvin", "fragment:" + index + ",onDestroyView");
     }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        Log.d("alvin", "fragment:" + index + ",onHiddenChanged:" + hidden);
+//        Log.d("alvin", "fragment:" + index + ",onHiddenChanged:" + hidden);
     }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        Log.d("alvin", "setUserVisibleHint isVisibleToUser:" + isVisibleToUser);
+//        Log.d("alvin", "setUserVisibleHint isVisibleToUser:" + isVisibleToUser);
     }
 }

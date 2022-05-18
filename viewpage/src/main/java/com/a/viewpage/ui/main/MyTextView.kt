@@ -42,7 +42,6 @@ class MyTextView : androidx.appcompat.widget.AppCompatTextView {
 
         focusChangeListener =
                 ViewTreeObserver.OnWindowFocusChangeListener { hasFocus ->
-                    Log.d("alvin", " MyTextView ${flagText} OnWindowFocusChange hasFocus:$hasFocus hasWindowFocus:${hasWindowFocus()} isShown:${isShown}  visibility:${visibility} isShowHalf:${isShowHalf}")
                     if (hasFocus) {
                         comeInTime = System.currentTimeMillis()
                         focusChangeNum = 0
@@ -83,7 +82,7 @@ class MyTextView : androidx.appcompat.widget.AppCompatTextView {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
                 viewTreeObserver.removeOnWindowFocusChangeListener(focusChangeListener)
             }
-            Log.d("alvin", "MyTextView ${flagText} changeFocusManual  hasFocus:${hasFocus}")
+//            Log.d("alvin", "MyTextView ${flagText} changeFocusManual  hasFocus:${hasFocus}")
             focusChangeListener?.onWindowFocusChanged(hasFocus)
 
         }
@@ -94,7 +93,7 @@ class MyTextView : androidx.appcompat.widget.AppCompatTextView {
         super.onAttachedToWindow()
         isShowHalf = false
         comeInTime = System.currentTimeMillis()
-        Log.d("alvin", "MyTextView ${flagText} onAttachedToWindow  hasWindowFocus:${hasWindowFocus()} isShown:${isShown}  visibility:${visibility} isShowHalf:${isShowHalf}")
+//        Log.d("alvin", "MyTextView ${flagText} onAttachedToWindow  hasWindowFocus:${hasWindowFocus()} isShown:${isShown}  visibility:${visibility} isShowHalf:${isShowHalf}")
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             viewTreeObserver.removeOnWindowFocusChangeListener(focusChangeListener)
@@ -111,7 +110,7 @@ class MyTextView : androidx.appcompat.widget.AppCompatTextView {
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
 
-        Log.d("alvin", "MyTextView ${flagText} onDetachedFromWindow hasWindowFocus:${hasWindowFocus()} isShown:${isShown}  visibility:${visibility} isShowHalf:${isShowHalf}")
+//        Log.d("alvin", "MyTextView ${flagText} onDetachedFromWindow hasWindowFocus:${hasWindowFocus()} isShown:${isShown}  visibility:${visibility} isShowHalf:${isShowHalf}")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             viewTreeObserver.removeOnWindowFocusChangeListener(focusChangeListener)
         }
@@ -124,7 +123,7 @@ class MyTextView : androidx.appcompat.widget.AppCompatTextView {
     }
 
     private fun collectViewData() {
-        Log.d("alvin", "MyTextView ${flagText} collectViewData isShowHalf:${isShowHalf}")
+//        Log.d("alvin", "MyTextView ${flagText} collectViewData isShowHalf:${isShowHalf}")
     }
 
 

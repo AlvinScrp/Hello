@@ -5,7 +5,6 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-import com.jakewharton.rxbinding2.view.RxView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
@@ -19,6 +18,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
+import java.net.SocketTimeoutException
 
 
 class RxJavaAppActivity : AppCompatActivity() {
@@ -29,6 +29,13 @@ class RxJavaAppActivity : AppCompatActivity() {
         .baseUrl("https://api.github.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .client(OkHttpClient().newBuilder().apply {
+            addInterceptor { chain ->
+                Thread.sleep(2000)
+                throw SocketTimeoutException("sdsd")
+                chain.proceed(chain.request())
+            }
+        }.build())
         .build()
 
     private var service:IService = retrofit.create(IService::class.java)
@@ -76,7 +83,7 @@ class RxJavaAppActivity : AppCompatActivity() {
         service.userInfoRx(userName)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(Consumer { tv.text = "retrofitAndRxJava: \n ${it.url }"  })
+            .subscribe(Consumer { tv.text = "retrofitAndRxJava: \n ${it.url }"  },Throwable::printStackTrace)
 
     }
 }

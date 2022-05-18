@@ -45,19 +45,27 @@ class RxJavaMain {
         fun main(args: Array<String>) {
             println("sdsdwwwwsdsdsd")
 
+            Observable.just(3)
+                .filter { it > 4 }
+                .map { it * 4 }
+                .subscribe(
+                    { println(it) }, { it -> it.printStackTrace() })
 
-            Observable.create<Int> {
-                println("in create :${Thread.currentThread()}");
-                for (i in 1 until 10001) {
-                    it.onNext(1)
-                }
-            }
+            Thread.sleep(1000)
+
+
+//            Observable.create<Int> {
+//                println("in create :${Thread.currentThread()}");
+//                for (i in 1 until 10001) {
+//                    it.onNext(1)
+//                }
+//            }
 //                .observeOn(Schedulers.io())/**/
 
 //                .filter { it > 10 }
-                .subscribeOn(Schedulers.newThread())
-                .subscribe {
-                    println("on next:${Thread.currentThread()} $it")}
+//                .subscribeOn(Schedulers.newThread())
+//                .subscribe {
+//                    println("on next:${Thread.currentThread()} $it")}
 //            var executor: ScheduledThreadPoolExecutor = Executors.newScheduledThreadPool(1) as ScheduledThreadPoolExecutor
 //            executor.scheduleWithFixedDelay({
 //                Thread.sleep(2000)
@@ -250,7 +258,7 @@ class RxJavaMain {
 
 //            println(Pow2.roundToPowerOfTwo(3))
 
-                    //            var spscArrayQueue = SpscLinkedArrayQueue<Int>(3)
+            //            var spscArrayQueue = SpscLinkedArrayQueue<Int>(3)
 //            for (i in 1..1000) {
 //                var offered = spscArrayQueue.offer(i)
 //                println("spscArrayQueue.offer:$i , $offered")
@@ -282,7 +290,7 @@ class RxJavaMain {
 //                        }
 //                    })
 
-                    //被观察者在主线程中，每1ms发送一个事件
+            //被观察者在主线程中，每1ms发送一个事件
 //            Flowable.interval(10, TimeUnit.MILLISECONDS)
 ////                    .onBackpressureLatest()
 //                .onBackpressureDrop()
@@ -309,7 +317,7 @@ class RxJavaMain {
 //                        println(it)
 //                    }
 
-                    //            Flowable.just(1, 2, 3, 4, 5)
+            //            Flowable.just(1, 2, 3, 4, 5)
 //                    .subscribe {
 //                        println("Flowable next : $it")
 //                    }

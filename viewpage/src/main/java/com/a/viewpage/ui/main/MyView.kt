@@ -28,7 +28,7 @@ class MyView : View {
     private fun init() {
         focusChangeListener=
         (ViewTreeObserver.OnWindowFocusChangeListener {
-            Log.d("alvin","MyView ${text} OnWindowFocusChange hasFocus:$it ")
+//            Log.d("alvin","MyView ${text} OnWindowFocusChange hasFocus:$it ")
         })
     }
 
@@ -48,7 +48,7 @@ class MyView : View {
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        Log.d("alvin","MyView ${text} onAttachedToWindow ")
+//        Log.d("alvin","MyView ${text} onAttachedToWindow ")
        viewTreeObserver.removeOnWindowFocusChangeListener (focusChangeListener)
        viewTreeObserver.addOnWindowFocusChangeListener (focusChangeListener)
     }
@@ -56,7 +56,7 @@ class MyView : View {
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        Log.d("alvin","MyView ${text} onDetachedFromWindow ")
+//        Log.d("alvin","MyView ${text} onDetachedFromWindow ")
         viewTreeObserver.removeOnWindowFocusChangeListener (focusChangeListener)
     }
 
